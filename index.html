@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Play What We Feel - Gaming Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* ========== HEADER ========== */
+        .main-header {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header-overlay {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 50px 80px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .header-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            to { text-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: #aaa;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .games-section {
+            flex: 1;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: #00ffff;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(to right, #ff00ff, #00ffff);
+            margin: 20px auto;
+            border-radius: 3px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+            border-color: rgba(0, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .game-logo {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            border: 3px solid;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { border-color: #00ffff; box-shadow: 0 0 20px #00ffff; }
+            25% { border-color: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
+            50% { border-color: #ffff00; box-shadow: 0 0 20px #ffff00; }
+            75% { border-color: #00ff00; box-shadow: 0 0 20px #00ff00; }
+            100% { border-color: #00ffff; box-shadow: 0 0 20px #00ffff; }
+        }
+
+        .game-name {
+            font-size: 1.4rem;
+            margin: 15px 0;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ========== FOOTER ========== */
+        .main-footer {
+            background: linear-gradient(135deg, #00ffff, #0080ff);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: shimmer 4s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .wish-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            color: #fff;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #ff00ff;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border-color: #fff;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .header-title { font-size: 2.2rem; }
+            .header-overlay { padding: 30px 40px; }
+            .section-title { font-size: 2rem; }
+            .games-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+            .wish-text { font-size: 1.7rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header-title { font-size: 1.6rem; }
+            .section-title { font-size: 1.5rem; }
+            .games-grid { grid-template-columns: 1fr; }
+            .social-links { gap: 20px; }
+            .social-link { width: 45px; height: 45px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="main-header">
+        <div class="header-overlay">
+            <h1 class="header-title">WE PLAY WHAT WE FEEL</h1>
+            <p class="header-subtitle">Karibu kwenye ulimwengu wa michezo yetu</p>
+        </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="games-section">
+        <div class="container">
+            <h2 class="section-title">MIONGONI MWA GAME TULIZO NAZO</h2>
+            
+            <div class="games-grid">
+                <!-- God of War -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #8B0000, #DC143C);">
+                        ⚔️
+                    </div>
+                    <h3 class="game-name">GOD OF WAR</h3>
+                </div>
+
+                <!-- GTA -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #000000, #333333);">
+                        🚗
+                    </div>
+                    <h3 class="game-name">GTA</h3>
+                </div>
+
+                <!-- A Way Out -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+                        🤝
+                    </div>
+                    <h3 class="game-name">A WAY OUT</h3>
+                </div>
+
+                <!-- Last of Us -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #4B0082, #8A2BE2);">
+                        🧟
+                    </div>
+                    <h3 class="game-name">LAST OF US</h3>
+                </div>
+
+                <!-- Days Gone -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #8B4513, #A0522D);">
+                        🏍️
+                    </div>
+                    <h3 class="game-name">DAYS GONE</h3>
+                </div>
+
+                <!-- Mortal Kombat -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #FF0000, #8B0000);">
+                        🐉
+                    </div>
+                    <h3 class="game-name">MORTAL KOMBAT</h3>
+                </div>
+
+                <!-- Blue (Placeholder) -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #0000FF, #1E90FF);">
+                        🔵
+                    </div>
+                    <h3 class="game-name">BLUE</h3>
+                </div>
+
+                <!-- Spider-Man -->
+                <div class="game-card">
+                    <div class="game-logo" style="background: linear-gradient(135deg, #FF0000, #0000FF);">
+                        🕷️
+                    </div>
+                    <h3 class="game-name">SPIDER-MAN</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <h3 class="wish-text">I WISH YOU ALL THE BEST</h3>
+            
+            <p class="contact-info">
+                <i class="fas fa-phone"></i> 0685649087
+            </p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://google.com" target="_blank" class="social-link" title="Google">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
